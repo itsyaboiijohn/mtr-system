@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Driver Applicants - Mindanao Travel Hub</title>
+	<style>
+		:root { --navy:#102a43; --blue:#0ea5e9; --blue-dark:#0369a1; --bg:#f3f8fb; --card:#fff; --text:#172b4d; --muted:#718096; --line:#e5edf3; --green:#15803d; --red:#b91c1c; --shadow:0 12px 30px rgba(16,42,67,.07); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+		* { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--text); } button,select { font:inherit; cursor:pointer; } .layout { min-height:100vh; display:block; }
+		.content { width:min(1180px,100%);margin:0 auto;min-width:0;padding:28px clamp(18px,4vw,48px); }.back-button { display:inline-flex;align-items:center;gap:7px;margin-bottom:22px;color:var(--blue-dark);font-size:13px;font-weight:800;text-decoration:none; }.back-button:hover { text-decoration:underline; }.topbar,.panel-heading { display:flex;justify-content:space-between;align-items:center;gap:18px; }.topbar { margin-bottom:28px; }.topbar h1 { margin:0 0 5px;font-size:26px; }.topbar p,.panel-heading p { margin:0;color:var(--muted);font-size:14px; }.avatar { display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#dff5ff;color:var(--blue-dark);font-weight:800; }.panel { padding:20px;background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow); }.panel-heading { margin-bottom:18px; }.panel-heading h2 { margin:0 0 4px;font-size:18px; }.toolbar { display:flex;gap:10px; }.filter { min-height:38px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text); }.table-wrap { overflow-x:auto; } table { width:100%;border-collapse:collapse;min-width:720px; } th,td { padding:13px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:13px;vertical-align:middle; } th { color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em; }.driver-name { display:flex;align-items:center;gap:10px;min-width:190px; }.driver-avatar,.profile-avatar { display:grid;place-items:center;border-radius:50%;background:#dff5ff;color:var(--blue-dark);font-weight:800; }.driver-avatar { width:38px;height:38px;font-size:12px; }.driver-name strong,.driver-name span { display:block; }.driver-name span { color:var(--muted);font-size:12px; }.status { display:inline-block;padding:5px 9px;border-radius:999px;background:#dcfce7;color:var(--green);font-size:11px;font-weight:700; }.status.pending { background:#fff7ed;color:#c2410c; }.status.rejected { background:#fee2e2;color:var(--red); }.actions { display:flex;flex-wrap:wrap;gap:6px; }.btn { min-height:34px;padding:0 11px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--blue-dark);font-size:12px;font-weight:700; }.btn:hover { background:#eaf8ff;border-color:var(--blue); }.btn.approve { border-color:#86efac;background:#f0fdf4;color:var(--green); }.btn.deny { border-color:#fecaca;background:#fff7f7;color:var(--red); }.modal { position:fixed;inset:0;z-index:5;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(16,42,67,.5); }.modal.open { display:flex; }.modal-card { width:min(820px,100%);max-height:90vh;overflow:auto;padding:22px;border-radius:14px;background:#fff;box-shadow:0 25px 70px rgba(2,6,23,.2); }.modal-heading { display:flex;justify-content:space-between;align-items:center;margin-bottom:18px; }.modal-heading h2 { margin:0;font-size:20px; }.close { border:0;background:transparent;color:var(--muted);font-size:22px; }.profile-head { display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line); }.profile-avatar { width:58px;height:58px;flex:0 0 auto;font-size:18px; }.profile-head h3 { margin:0 0 5px;font-size:21px; }.profile-head p { margin:0;color:var(--muted);font-size:13px; }.profile-head .status { margin-left:auto; }.profile-section { margin-top:20px; }.profile-section h3 { margin:0 0 11px;font-size:14px; }.details,.files { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }.detail { padding:11px 12px;border-radius:8px;background:#f7fcfe; }.detail span,.detail strong { display:block; }.detail span { margin-bottom:4px;color:var(--muted);font-size:11px; }.detail strong { overflow-wrap:anywhere;font-size:13px; }.file { overflow:hidden;border:1px solid var(--line);border-radius:9px; }.preview { display:grid;height:155px;place-items:center;overflow:hidden;background:#f1f8fb;color:var(--muted);font-size:12px; }.preview img { width:100%;height:100%;object-fit:cover; }.preview iframe { width:100%;height:100%;border:0;background:#fff; }.file-info { padding:10px; }.file-info strong,.file-info a { display:block; }.file-info strong { margin-bottom:7px;font-size:12px; }.file-info a { color:var(--blue-dark);font-size:11px;font-weight:700;text-decoration:none; }.review { display:flex;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line); }
+		@media (max-width:760px) { .details,.files { grid-template-columns:1fr; }.topbar,.panel-heading { align-items:flex-start;flex-direction:column; }.toolbar { width:100%; }.filter { width:100%; }.profile-head { align-items:flex-start;flex-wrap:wrap; }.profile-head .status { margin-left:0; } }
+	</style>
+</head>
+<body>
+	<div class="layout">
+		<main class="content">
+			<a class="back-button" href="admin.php#overview">← Back to Dashboard</a>
+			<header class="topbar"><div><h1>Driver applicants</h1><p>Review pending applications and previously denied driver profiles.</p></div><div class="avatar">AD</div></header>
+			<section class="panel"><div class="panel-heading"><div><h2>Applications</h2><p>Open a profile to review documents and approve or deny the applicant.</p></div><div class="toolbar"><select class="filter" id="statusFilter" aria-label="Filter applicants"><option value="all">All applicants</option><option value="pending">Pending</option><option value="rejected">Rejected</option></select></div></div><div class="table-wrap"><table><thead><tr><th>Applicant</th><th>Vehicle</th><th>Capacity</th><th>Application status</th><th>Action</th></tr></thead><tbody id="applicantRows"><tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">Loading applicants...</td></tr></tbody></table></div></section>
+		</main>
+	</div>
+	<div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><div class="modal-card"><div class="modal-heading"><h2 id="profileTitle">Driver profile</h2><button class="close" type="button" data-close>×</button></div><div id="profileBody"></div><div class="review"><button class="btn" type="button" data-close>Close</button></div></div></div>
+	<script>
+		(() => {
+			const rows = document.querySelector('#applicantRows');
+			const filter = document.querySelector('#statusFilter');
+			const modal = document.querySelector('#profileModal');
+			const profileBody = document.querySelector('#profileBody');
+			let applicants = [];
+			const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#039;', '"':'&quot;' })[character]);
+			const initials = name => String(name || '?').split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+			const fileUrl = path => path ? `../${path}` : '';
+			const statusText = status => String(status || '').replace(/^./, character => character.toUpperCase());
+			const renderFile = (label, path) => {
+				if (!path) return `<article class="file"><div class="preview">No file uploaded</div><div class="file-info"><strong>${label}</strong></div></article>`;
+				const url = fileUrl(path);
+				const preview = /\.pdf(?:$|\?)/i.test(path) ? `<iframe src="${escapeHtml(url)}" title="${label} preview"></iframe>` : `<img src="${escapeHtml(url)}" alt="${label}">`;
+				return `<article class="file"><div class="preview">${preview}</div><div class="file-info"><strong>${label}</strong><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></div></article>`;
+			};
+			const renderRows = () => {
+				const selected = filter.value;
+				const visible = applicants.filter(driver => selected === 'all' || driver.verification_status === selected);
+				rows.innerHTML = visible.length ? visible.map(driver => `<tr data-id="${escapeHtml(driver.id)}"><td><div class="driver-name"><div class="driver-avatar">${escapeHtml(initials(driver.full_name))}</div><div><strong>${escapeHtml(driver.full_name)}</strong><span>${escapeHtml(driver.email || 'No email')}</span></div></div></td><td>${escapeHtml(driver.company_vehicle_unit || 'No vehicle assigned')}</td><td>${escapeHtml(driver.company_passenger_capacity || '—')}${driver.company_passenger_capacity ? ' guests' : ''}</td><td><span class="status ${driver.verification_status === 'rejected' ? 'rejected' : 'pending'}">${escapeHtml(statusText(driver.verification_status))}</span></td><td><button class="btn view-profile" type="button">View profile</button></td></tr>`).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">No applicants found.</td></tr>';
+			};
+			const loadApplicants = async () => {
+				const response = await fetch('../api/admin-content.php?driver_scope=applicants');
+				const result = await response.json();
+				if (!response.ok) throw new Error(result.error || 'Unable to load applicants.');
+				applicants = result.drivers || [];
+				renderRows();
+			};
+			const openProfile = driver => {
+				profileBody.dataset.id = driver.id;
+				profileBody.innerHTML = `<div class="profile-head"><div class="profile-avatar">${escapeHtml(initials(driver.full_name))}</div><div><h3 id="profileTitle">${escapeHtml(driver.full_name)}</h3><p>${escapeHtml(driver.email || 'No email')} · ${escapeHtml(driver.phone || 'No phone')}</p></div><span class="status ${driver.verification_status === 'rejected' ? 'rejected' : 'pending'}">${escapeHtml(statusText(driver.verification_status))}</span></div><section class="profile-section"><h3>Contact details</h3><div class="details"><div class="detail"><span>Phone</span><strong>${escapeHtml(driver.phone || 'Not provided')}</strong></div><div class="detail"><span>Email</span><strong>${escapeHtml(driver.email || 'Not provided')}</strong></div><div class="detail"><span>Training completed</span><strong>${driver.training_completed ? 'Yes' : 'No'}</strong></div></div></section><section class="profile-section"><h3>Driver documents</h3><div class="files">${renderFile('Training certificate copy', driver.training_certificate_file)}${renderFile('Driver license photo', driver.license_file)}${renderFile('Test-drive certificate or result', driver.test_drive_file)}</div></section><div class="review"><button class="btn approve" type="button" data-review="approved">Approve driver</button><button class="btn deny" type="button" data-review="rejected">Deny driver</button></div>`;
+				modal.classList.add('open');
+			};
+			rows.addEventListener('click', event => { const button = event.target.closest('.view-profile'); if (!button) return; const driver = applicants.find(item => String(item.id) === String(button.closest('tr').dataset.id)); if (driver) openProfile(driver); });
+			profileBody.addEventListener('click', async event => { const button = event.target.closest('[data-review]'); if (!button) return; const driver = applicants.find(item => String(item.id) === String(profileBody.dataset.id)); if (!driver) return; const action = button.dataset.review === 'approved' ? 'approve' : 'deny'; if (!window.confirm(`Are you sure you want to ${action} ${driver.full_name}?`)) return; button.disabled = true; try { const response = await fetch('../api/admin-content.php', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ type:'driver_status', id:Number(driver.id), status:button.dataset.review }) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Unable to update driver status.'); modal.classList.remove('open'); await loadApplicants(); } catch (error) { button.disabled = false; window.alert(error.message); } });
+			document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', () => modal.classList.remove('open'))); modal.addEventListener('click', event => { if (event.target === modal) modal.classList.remove('open'); }); filter.addEventListener('change', renderRows); loadApplicants().catch(error => { rows.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#b91c1c;padding:20px">${escapeHtml(error.message)}</td></tr>`; });
+		})();
+	</script>
+</body>
+</html>
